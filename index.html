@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kacamata Ibran - Melihat Lebih Jelas</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="#home" class="logo">
+            <img src="assets/img_logo.jpg"
+                 alt="Logo Ibran" class="logo-img">
+            <span class="logo-text">KACAMATA IBRAN</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="hero-logo">
+            <img src="assets/img_logo.jpg"
+                 alt="Logo Kacamata Ibran">
+        </div>
+
+        <div class="hero-label">
+            STYLE • QUALITY • COMFORT
+        </div>
+
+        <h1>
+            Melihat Lebih Jelas di
+            <span>Kacamata Ibran</span>
+        </h1>
+
+        <p>
+            Temukan kacamata stylish, nyaman, dan berkualitas
+            dengan harga bersahabat.
+        </p>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput"
+            placeholder="Cari kacamata hitam, minus, fashion..."
+            aria-label="Cari produk kacamata">
+        </div>
+
+        <div class="benefits">
+            <span><i class="fa-solid fa-check-circle"></i> Model Kekinian</span>
+            <span><i class="fa-solid fa-tags"></i> Harga Terjangkau</span>
+            <span><i class="fa-solid fa-headset"></i> Layanan Ramah</span>
+        </div>
+    </div>
+</section>
+
+<main class="container" id="produk">
+
+    <h2 class="section-title">Katalog Kacamata</h2>
+
+    <div class="category-filter">
+        <button class="filter-btn active" data-category="semua">Semua Produk</button>
+        <button class="filter-btn" data-category="hitam">Kacamata Hitam</button>
+        <button class="filter-btn" data-category="fashion">Fashion</button>
+        <button class="filter-btn" data-category="minus">Kacamata Minus</button>
+        <button class="filter-btn" data-category="premium">Premium</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+        <div class="product-card"
+             data-category="hitam"
+             data-name="kacamata hitam classic">
+
+            <div class="card-img-container">
+                <span class="badge-status">BEST SELLER</span>
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80"
+                     alt="Kacamata hitam classic"
+                     loading="lazy">
+            </div>
+
+            <div class="card-body">
+                <div class="card-title">Kacamata Hitam Classic</div>
+                <div class="card-specs">
+                    <span class="spec-item">Unisex</span>
+                    <span class="spec-item">Fashion</span>
+                    <span class="spec-item">Stylish</span>
+                </div>
+                <div class="card-price">Rp 75.000</div>
+                <a href="#" class="btn-buy"
+                   data-product="Kacamata Hitam Classic"
+                   data-price="75000">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Beli Sekarang
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card"
+             data-category="fashion"
+             data-name="kacamata fashion modern">
+
+            <div class="card-img-container">
+                <span class="badge-status">TRENDING</span>
+                <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=600&q=80"
+                     alt="Kacamata fashion modern"
+                     loading="lazy">
+            </div>
+
+            <div class="card-body">
+                <div class="card-title">Kacamata Fashion Modern</div>
+                <div class="card-specs">
+                    <span class="spec-item">Unisex</span>
+                    <span class="spec-item">Ringan</span>
+                    <span class="spec-item">Modern</span>
+                </div>
+                <div class="card-price">Rp 65.000</div>
+                <a href="#" class="btn-buy"
+                   data-product="Kacamata Fashion Modern"
+                   data-price="65000">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Beli Sekarang
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card"
+             data-category="minus"
+             data-name="frame kacamata minus">
+
+            <div class="card-img-container">
+                <span class="badge-status">READY</span>
+                <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=600&q=80"
+                     alt="Frame kacamata minus"
+                     loading="lazy">
+            </div>
+
+            <div class="card-body">
+                <div class="card-title">Frame Kacamata Minus</div>
+                <div class="card-specs">
+                    <span class="spec-item">Frame Ringan</span>
+                    <span class="spec-item">Unisex</span>
+                    <span class="spec-item">Lensa Terpisah</span>
+                </div>
+                <div class="card-price">Rp 85.000</div>
+                <a href="#" class="btn-buy"
+                   data-product="Frame Kacamata Minus"
+                   data-price="85000">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Beli Sekarang
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card"
+             data-category="premium"
+             data-name="kacamata premium elegan">
+
+            <div class="card-img-container">
+                <span class="badge-status">PREMIUM</span>
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+                     alt="Kacamata premium elegan"
+                     loading="lazy">
+            </div>
+
+            <div class="card-body">
+                <div class="card-title">Kacamata Premium Elegan</div>
+                <div class="card-specs">
+                    <span class="spec-item">Eksklusif</span>
+                    <span class="spec-item">Fashion</span>
+                    <span class="spec-item">Premium Look</span>
+                </div>
+                <div class="card-price">Rp 150.000</div>
+                <a href="#" class="btn-buy"
+                   data-product="Kacamata Premium Elegan"
+                   data-price="150000">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Beli Sekarang
+                </a>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <p>Produk tidak ditemukan.</p>
+        </div>
+
+    </div>
+
+    <section class="about" id="tentang">
+        <h2>
+            <i class="fa-solid fa-glasses"></i>
+            Tentang Toko Kacamata Ibran
+        </h2>
+        <p>
+            Toko Kacamata Ibran menyediakan berbagai pilihan
+            kacamata untuk menunjang penampilan dan kebutuhan
+            sehari-hari. Temukan model favoritmu dengan pilihan
+            harga yang ramah di kantong. Hubungi kami untuk
+            informasi stok, ukuran, dan pilihan lensa.
+        </p>
+    </section>
+
+</main>
+
+<a href="#" class="floating-widget" id="csButton"
+   target="_blank" rel="noopener">
+    <i class="fa-brands fa-whatsapp"></i>
+    Bantuan CS
+</a>
+
+<footer id="kontak">
+    <p>&copy; 2026 Toko Kacamata Ibran. All Rights Reserved.</p>
+    <p>Belanja kacamata favoritmu dengan mudah.</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
