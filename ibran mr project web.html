@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kacamata Ibran - Melihat Lebih Jelas</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+    --bg: #0a0e17;
+    --card: #161f30;
+    --header: #111827;
+    --accent: #38bdf8;
+    --text: #ffffff;
+    --muted: #9ca3af;
+    --border: #1f2937;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* HEADER */
+header {
+    background: var(--header);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    background: white;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.logo-text {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+/* HERO */
+.hero {
+    background:
+        radial-gradient(ellipse at top, #16334a, transparent 70%),
+        linear-gradient(180deg, var(--header), var(--bg));
+    padding: 45px 20px 30px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.hero-logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    background: white;
+    border-radius: 18px;
+    padding: 8px;
+    box-shadow: 0 0 35px #38bdf830;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.hero-label {
+    color: var(--accent);
+    font-size: .8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 15px 0 10px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--accent);
+}
+
+.hero p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.search-box {
+    max-width: 500px;
+    margin: 25px auto;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px 20px 14px 45px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: var(--accent);
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+}
+
+.benefits {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+.benefits i {
+    color: var(--accent);
+    margin-right: 5px;
+}
+
+/* KONTEN */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 15px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+}
+
+/* FILTER */
+.category-filter {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background: var(--card);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--accent);
+    color: #082f49;
+    border-color: var(--accent);
+}
+
+/* GRID PRODUK */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s, border-color .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.card-img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #1e293b;
+    overflow: hidden;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: glassesFloat 4s ease-in-out infinite;
+    transition: transform .6s, filter .6s;
+}
+
+.product-card:hover .card-img-container img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+    animation-play-state: paused;
+}
+
+.badge-status {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: var(--accent);
+    color: #082f49;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: .7rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.card-body {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.card-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+
+.spec-item {
+    background: #0f172a;
+    color: var(--muted);
+    font-size: .7rem;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.card-price {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #4ade80;
+    margin-top: auto;
+    margin-bottom: 12px;
+}
+
+.btn-buy {
+    width: 100%;
+    background: var(--accent);
+    color: #082f49;
+    border: none;
+    padding: 10px 5px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: .85rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.btn-buy:hover {
+    background: #0284c7;
+    color: white;
+}
+
+.no-results {
+    display: none;
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 10px;
+    grid-column: 1 / -1;
+}
+
+/* TENTANG */
+.about {
+    margin-top: 45px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+}
+
+.about h2 {
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.about p {
+    color: var(--muted);
+}
+
+/* WHATSAPP */
+.floating-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: .85rem;
+    box-shadow: 0 4px 12px #0008;
+    z-index: 99;
+}
+
+.floating-widget:hover {
+    background: #128c7e;
+}
+
+/* FOOTER */
+footer {
+    background: var(--header);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 40px;
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ANIMASI */
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes glassesFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        font-size: .85rem;
+    }
+
+    .hero {
+        padding-top: 35px;
+    }
+
+    .benefits {
+        gap: 10px;
+    }
+
+    .card-body {
+        padding: 9px;
+    }
+
+    .card-title {
+        font-size: .85rem;
+    }
+
+    .card-price {
+        font-size: .95rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="nav-container">
+        <a href="#home" class="logo">
+            <img src="logo.jpg" alt="Logo Ibran" class="logo-img">
+            <span class="logo-text">KACAMATA IBRAN</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="hero-logo">
+            <img src="logo.jpg" alt="Logo Kacamata Ibran">
+        </div>
+
+        <div class="hero-label">STYLE • QUALITY • COMFORT</div>
+
+        <h1>
+            Melihat Lebih Jelas di
+            <span>Kacamata Ibran</span>
+        </h1>
+
+        <p>
+            Temukan kacamata stylish, nyaman, dan berkualitas
+            dengan harga bersahabat.
+        </p>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari kacamata hitam, minus, fashion..."
+                aria-label="Cari produk kacamata"
+            >
+        </div>
+
+        <div class="benefits">
+            <span><i class="fa-solid fa-check-circle"></i> Model Kekinian</span>
+            <span><i class="fa-solid fa-tags"></i> Harga Terjangkau</span>
+            <span><i class="fa-solid fa-headset"></i> Layanan Ramah</span>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUK -->
+<main class="container" id="produk">
+
+    <h2 class="section-title">Katalog Kacamata</h2>
+
+    <div class="category-filter">
+        <button class="filter-btn active" data-category="semua">Semua Produk</button>
+        <button class="filter-btn" data-category="hitam">Kacamata Hitam</button>
+        <button class="filter-btn" data-category="fashion">Fashion</button>
+        <button class="filter-btn" data-category="minus">Kacamata Minus</button>
+        <button class="filter-btn" data-category="premium">Premium</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+        <!-- PRODUK 1 -->
+        <div class="product-card"
+             data-category="hitam"
+             data-name="kacamata hitam classic">
+
+            <div class="card-img-container">
+                <span class="badge-status">BEST SELLER</span>
+                <img
+                    src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80"
+                    alt="Kacamata hitam classic"
+                    loading="lazy">
+            </div>
+
+            <div class="card-body">
+                <div class="card-title">Kacamata Hitam Classic</div>
+                <div class="card-specs">
+                    <span class="spec-item">Unisex</span>
+                    <span class="spec-item">Fashion</span>
+                    <span class="spec-item">Stylish</span>
+                </div>
+                <div class="card-price">Rp 75.000</div>
+                <a href="#" class="btn-buy"
+                   data-product="Kacamata Hitam Classic"
+                   data-price="75000">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Beli Sekarang
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUK 2 -->
+        <div class="product-card"
+             data-category="fashion"
+             data-name="kacamata fashion modern">
+
+            <div class="card-img-container">
+                <span class="badge-status">TRENDING</span>
+                <img
+                    src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=600&q=80"
+                    alt="Kacamata fashion modern"
+                    loading="lazy">
+            </div>
+
+            <div class="card-body">
+                <div class="card-title">Kacamata Fashion Modern</div>
+                <div class="card-specs">
+                    <span class="spec-item">Unisex</span>
+                    <span class="spec-item">Ringan</span>
+                    <span class="spec-item">Modern</span>
+                </div>
+                <div class="card-price">Rp 65.000</div>
+                <a href="#" class="btn-buy"
+                   data-product="Kacamata Fashion Modern"
+                   data-price="65000">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Beli Sekarang
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+        <div class="product-card"
+             data-category="minus"
+             data-name="frame kacamata minus">
+
+            <div class="card-img-container">
+                <span class="badge-status">READY</span>
+                <img
+                    src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=600&q=80"
+                    alt="Frame kacamata minus"
+                    loading="lazy">
+            </div>
+
+            <div class="card-body">
+                <div class="card-title">Frame Kacamata Minus</div>
+                <div class="card-specs">
+                    <span class="spec-item">Frame Ringan</span>
+                    <span class="spec-item">Unisex</span>
+                    <span class="spec-item">Lensa Terpisah</span>
+                </div>
+                <div class="card-price">Rp 85.000</div>
+                <a href="#" class="btn-buy"
+                   data-product="Frame Kacamata Minus"
+                   data-price="85000">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Beli Sekarang
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUK 4 -->
+        <div class="product-card"
+             data-category="premium"
+             data-name="kacamata premium elegan">
+
+            <div class="card-img-container">
+                <span class="badge-status">PREMIUM</span>
+                <img
+                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+                    alt="Kacamata premium elegan"
+                    loading="lazy">
+            </div>
+
+            <div class="card-body">
+                <div class="card-title">Kacamata Premium Elegan</div>
+                <div class="card-specs">
+                    <span class="spec-item">Eksklusif</span>
+                    <span class="spec-item">Fashion</span>
+                    <span class="spec-item">Premium Look</span>
+                </div>
+                <div class="card-price">Rp 150.000</div>
+                <a href="#" class="btn-buy"
+                   data-product="Kacamata Premium Elegan"
+                   data-price="150000">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Beli Sekarang
+                </a>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            <i class="fa-solid fa-magnifying-glass"
+               style="font-size:2rem;margin-bottom:10px;"></i>
+            <p>Produk tidak ditemukan.</p>
+        </div>
+
+    </div>
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang">
+        <h2>
+            <i class="fa-solid fa-glasses"></i>
+            Tentang Toko Kacamata Ibran
+        </h2>
+        <p>
+            Toko Kacamata Ibran menyediakan berbagai pilihan
+            kacamata untuk menunjang penampilan dan kebutuhan
+            sehari-hari. Temukan model favoritmu dengan pilihan
+            harga yang ramah di kantong. Hubungi kami untuk
+            informasi stok, ukuran, dan pilihan lensa.
+        </p>
+    </section>
+
+</main>
+
+<!-- WHATSAPP -->
+<a href="#" class="floating-widget" id="csButton"
+   target="_blank" rel="noopener">
+    <i class="fa-brands fa-whatsapp" style="font-size:1.3rem;"></i>
+    Bantuan CS
+</a>
+
+<!-- FOOTER -->
+<footer id="kontak">
+    <p>&copy; 2026 Toko Kacamata Ibran. All Rights Reserved.</p>
+    <p style="margin-top:8px;">
+        Belanja kacamata favoritmu dengan mudah.
+    </p>
+</footer>
+
+<script>
+// GANTI dengan nomor WhatsApp toko.
+// Gunakan kode negara 62 tanpa tanda + atau angka 0 di depan.
+const nomorWhatsApp = "6281234567890";
+
+const searchInput = document.getElementById("searchInput");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const products = document.querySelectorAll(".product-card");
+const noResults = document.getElementById("noResults");
+
+let activeCategory = "semua";
+
+// PENCARIAN DAN FILTER PRODUK
+function filterProducts() {
+    const keyword = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    products.forEach(product => {
+        const name = product.dataset.name.toLowerCase();
+        const title = product.querySelector(".card-title")
+            .textContent.toLowerCase();
+        const category = product.dataset.category;
+
+        const matchesSearch =
+            name.includes(keyword) || title.includes(keyword);
+
+        const matchesCategory =
+            activeCategory === "semua" ||
+            category === activeCategory;
+
+        const visible = matchesSearch && matchesCategory;
+
+        product.style.display = visible ? "flex" : "none";
+
+        if (visible) visibleCount++;
+    });
+
+    noResults.style.display =
+        visibleCount === 0 ? "block" : "none";
+}
+
+searchInput.addEventListener("input", filterProducts);
+
+// TOMBOL KATEGORI
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        filterButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+        activeCategory = button.dataset.category;
+        filterProducts();
+    });
+});
+
+// PEMBELIAN MELALUI WHATSAPP
+document.querySelectorAll(".btn-buy").forEach(button => {
+    button.href = "https://wa.me/" + nomorWhatsApp;
+    button.target = "_blank";
+    button.rel = "noopener";
+
+    button.addEventListener("click", event => {
+        event.preventDefault();
+
+        const product = button.dataset.product;
+        const price = Number(button.dataset.price)
+            .toLocaleString("id-ID");
+
+        const message =
+            `Halo Toko Kacamata Ibran, saya tertarik membeli ${product} dengan harga Rp ${price}. Apakah produknya masih tersedia?`;
+
+        const url = "https://wa.me/" + nomorWhatsApp +
+            "?text=" + encodeURIComponent(message);
+
+        window.open(url, "_blank");
+    });
+});
+
+// BANTUAN CUSTOMER SERVICE
+document.getElementById("csButton").href =
+    "https://wa.me/" + nomorWhatsApp +
+    "?text=" + encodeURIComponent(
+        "Halo Toko Kacamata Ibran, saya ingin bertanya tentang produk kacamata."
+    );
+</script>
+
+</body>
+</html>
